@@ -1,254 +1,230 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.5">
-  <style type="text/css">
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; -webkit-text-stroke: #000000}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Courier; -webkit-text-stroke: #000000; min-height: 16.0px}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'PingFang SC'; -webkit-text-stroke: #000000}
-    p.p5 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 13.0px 'PingFang SC'; font-kerning: none}
-    span.s3 {font: 13.0px 'Apple Color Emoji'; font-kerning: none}
-    span.s4 {font: 13.0px Courier; font-kerning: none}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WABCO 心理韧性急救包</title>
+<style>
+  body { 
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+    background-color: #f0f4f8; 
+    color: #333; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
+  .card { 
+    background: #ffffff; 
+    padding: 40px; 
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+    max-width: 600px; 
+    width: 100%; 
+    position: relative;
+  }
+  h1 { 
+    color: #4a90e2; 
+    font-size: 24px; 
+    text-align: center;
+    margin-bottom: 10px; 
+  }
+  .subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+  .step-indicator {
+    font-weight: bold;
+    color: #4a90e2;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  .question-text { 
+    font-size: 18px; 
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+    font-weight: bold;
+  }
+  .desc-text {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 2px solid #e1e4e8;
+    border-radius: 10px;
+    font-size: 16px;
+    resize: none;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-family: inherit;
+  }
+  textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+  }
+  .btn { 
+    display: block; 
+    width: 100%; 
+    padding: 15px; 
+    border: none; 
+    border-radius: 10px; 
+    background: #4a90e2; 
+    color: #fff; 
+    font-size: 18px; 
+    font-weight: bold;
+    cursor: pointer; 
+    transition: background 0.3s; 
+  }
+  .btn:hover { 
+    background: #357abd; 
+  }
+  /* 最后的报告样式 */
+  .report-box {
+    display: none;
+  }
+  .report-item {
+    background: #f9fbfd;
+    border-left: 4px solid #4a90e2;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+  }
+  .report-item h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #4a90e2;
+  }
+  .report-item p {
+    margin: 0;
+    font-size: 15px;
+    color: #444;
+    white-space: pre-wrap;
+  }
+</style>
 </head>
 <body>
-<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000; min-height: 18.0px"><span class="s1"></span><br></h3>
-<p class="p2"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p2"><span class="s1">&lt;html lang="zh-CN"&gt;</span></p>
-<p class="p2"><span class="s1">&lt;head&gt;</span></p>
-<p class="p2"><span class="s1">&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p2"><span class="s1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p2"><span class="s1">&lt;title&gt;WABCO </span><span class="s2">心理韧性急救包</span><span class="s1">&lt;/title&gt;</span></p>
-<p class="p2"><span class="s1">&lt;style&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>body {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>background-color: #f0f4f8;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>color: #333;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>display: flex;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>justify-content: center;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>align-items: center;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>min-height: 100vh;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>padding: 20px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.card {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>background: #ffffff;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>padding: 40px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 16px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>box-shadow: 0 10px 30px rgba(0,0,0,0.05);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>max-width: 600px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>width: 100%;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>position: relative;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>h1 {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>color: #4a90e2;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 24px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>text-align: center;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.subtitle {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>text-align: center;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>color: #777;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 30px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 14px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.step-indicator {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-weight: bold;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>color: #4a90e2;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 15px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 18px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.question-text {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 18px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>line-height: 1.6;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 20px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-weight: bold;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.desc-text {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 14px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>color: #666;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 20px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>line-height: 1.5;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>textarea {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>width: 100%;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>height: 120px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>padding: 15px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>border: 2px solid #e1e4e8;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 16px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>resize: none;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>box-sizing: border-box;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 20px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-family: inherit;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>textarea:focus {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>outline: none;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>border-color: #4a90e2;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.btn {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>display: block;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>width: 100%;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>padding: 15px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>border: none;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 10px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>background: #4a90e2;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>color: #fff;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 18px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-weight: bold;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>cursor: pointer;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>transition: background 0.3s;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.btn:hover {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>background: #357abd;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>/* </span><span class="s2">最后的报告样式</span><span class="s1"> */</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.report-box {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>display: none;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.report-item {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>background: #f9fbfd;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>border-left: 4px solid #4a90e2;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>padding: 15px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 15px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 4px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.report-item h3 {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0 0 10px 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 16px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>color: #4a90e2;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>.report-item p {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 15px;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>color: #444;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>white-space: pre-wrap;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1">&lt;/style&gt;</span></p>
-<p class="p2"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p2"><span class="s1">&lt;body&gt;</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1">&lt;div class="card"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h1&gt;</span><span class="s3">🛡️</span><span class="s1"> WABCO </span><span class="s2">心理韧性急救包</span><span class="s1">&lt;/h1&gt;</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">  </span>&lt;p class="subtitle"&gt;</span><span class="s1">面对突如其来的挑战，感到震惊和不知所措是正常的。暂且忍耐一下这种不舒服的感觉，让我们一步步来。</span><span class="s4">&lt;/p&gt;</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div id="step-container"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="step-indicator" id="step-id"&gt;</span><span class="s2">步骤</span><span class="s1"> 1 / 5&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="question-text" id="question-text"&gt;W (Write) - </span><span class="s2">写下来</span><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="desc-text" id="desc-text"&gt;</span><span class="s2">弄清楚你恐惧的具体是什么？把你面对的麻烦和内心的害怕都写在这里。</span><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;textarea id="user-input" placeholder="</span><span class="s2">输入你的想法</span><span class="s1">..."&gt;&lt;/textarea&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="btn" id="next-btn" onclick="nextStep()"&gt;</span><span class="s2">下一步</span><span class="s1">&lt;/button&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div id="report-container" class="report-box"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="question-text" style="text-align: center;"&gt;</span><span class="s3">✅</span><span class="s1"> </span><span class="s2">你的心理韧性应对方案已生成</span><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="desc-text" style="text-align: center;"&gt;</span><span class="s2">承认并共情你充满恐惧的那个部分，它才能得到疗愈。现在，请按照以下你亲自制定的步骤去行动吧：</span><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="report-content"&gt;&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="btn" style="margin-top:20px;" onclick="location.reload()"&gt;</span><span class="s2">重新开启练习</span><span class="s1">&lt;/button&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1">&lt;script&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>// WABCO </span><span class="s2">五步法的内容配置</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const steps = [</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>{</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>letter: "W (Write) - </span><span class="s2">写下来</span><span class="s1">",</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">      </span>desc: "</span><span class="s1">把问题写下来，弄清楚你恐惧的具体是什么？把你面对的麻烦和内心的害怕都写在这里。</span><span class="s4">",</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>placeholder: "</span><span class="s2">我现在的困境是</span><span class="s1">... </span><span class="s2">我真正害怕发生的是</span><span class="s1">..."</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>},</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>{</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>letter: "A (Ask) - </span><span class="s2">寻求</span><span class="s1">",</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">      </span>desc: "</span><span class="s1">根据你的需要寻求帮助。谁能在这件事上给你情感支持或实用建议？</span><span class="s4">",</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>placeholder: "</span><span class="s2">我可以向</span><span class="s1">___</span><span class="s2">寻求帮助，我需要他们帮我</span><span class="s1">..."</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>},</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>{</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>letter: "B (Break) - </span><span class="s2">分解</span><span class="s1">",</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">      </span>desc: "</span><span class="s1">将问题分解成几个部分。不要试图一次解决所有麻烦，第一步、第二步分别可以做什么？</span><span class="s4">",</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>placeholder: "1. </span><span class="s2">我今天能做的第一件小事是</span><span class="s1">...\n2. </span><span class="s2">接下来我可以</span><span class="s1">..."</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>},</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>{</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>letter: "C (Curb) - </span><span class="s2">抑制</span><span class="s1">",</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">      </span>desc: "</span><span class="s1">抑制自我批评的欲望。世上没有完美的人，不要在此时评判自己。写下一句安抚</span><span class="s4">“</span><span class="s1">内在小孩</span><span class="s4">”</span><span class="s1">的话。</span><span class="s4">",</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>placeholder: "</span><span class="s2">我不会因为感到害怕而羞愧，因为</span><span class="s1">..."</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>},</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>{</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>letter: "O (Optimistically) - </span><span class="s2">乐观</span><span class="s1">",</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">      </span>desc: "</span><span class="s1">乐观地想象解决问题后你会有什么感觉。这会让你立刻平静下来。</span><span class="s4">",</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>placeholder: "</span><span class="s2">当这一切过去后，我会感到</span><span class="s1">..."</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>];</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>let currentStep = 0;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const userAnswers = [];</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const stepIdEl = document.getElementById('step-id');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const questionEl = document.getElementById('question-text');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const descEl = document.getElementById('desc-text');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const inputEl = document.getElementById('user-input');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const stepContainer = document.getElementById('step-container');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const reportContainer = document.getElementById('report-container');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>const reportContent = document.getElementById('report-content');</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>function initStep() {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>stepIdEl.innerText = `</span><span class="s2">步骤</span><span class="s1"> ${currentStep + 1} / 5`;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>questionEl.innerText = steps[currentStep].letter;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>descEl.innerText = steps[currentStep].desc;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>inputEl.value = '';</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>inputEl.placeholder = steps[currentStep].placeholder;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>if(currentStep === 4) {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById('next-btn').innerText = '</span><span class="s2">生成我的应对方案</span><span class="s1">';</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>function nextStep() {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>const answer = inputEl.value.trim();</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>if(!answer) {</span></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">      </span>alert("</span><span class="s1">请写下一点你的想法，这会帮助你整理思绪哦。</span><span class="s4">");</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>return;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>userAnswers.push({</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>title: steps[currentStep].letter,</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>content: answer</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>currentStep++;</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>if(currentStep &lt; 5) {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>initStep();</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>} else {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>showReport();</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>function showReport() {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>stepContainer.style.display = 'none';</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>reportContainer.style.display = 'block';</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>let html = '';</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>userAnswers.forEach(ans =&gt; {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>html += `</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="report-item"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>&lt;h3&gt;${ans.title}&lt;/h3&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;${ans.content}&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span>`;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>reportContent.innerHTML = html;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p4"><span class="s4"><span class="Apple-converted-space">  </span>// </span><span class="s1">初始化第一步</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span>initStep();</span></p>
-<p class="p2"><span class="s1">&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p2"><span class="s1">&lt;/html&gt;</span></p>
-<p class="p5"><span class="s1"></span><br></p>
+
+<div class="card">
+  <h1>🛡️ WABCO 心理韧性急救包</h1>
+  <p class="subtitle">面对突如其来的挑战，感到震惊和不知所措是正常的。暂且忍耐一下这种不舒服的感觉，让我们一步步来。</p>
+  
+  <div id="step-container">
+    <div class="step-indicator" id="step-id">步骤 1 / 5</div>
+    <div class="question-text" id="question-text">W (Write) - 写下来</div>
+    <div class="desc-text" id="desc-text">弄清楚你恐惧的具体是什么？把你面对的麻烦和内心的害怕都写在这里。</div>
+    <textarea id="user-input" placeholder="输入你的想法..."></textarea>
+    <button class="btn" id="next-btn" onclick="nextStep()">下一步</button>
+  </div>
+
+  <div id="report-container" class="report-box">
+    <div class="question-text" style="text-align: center;">✅ 你的心理韧性应对方案已生成</div>
+    <div class="desc-text" style="text-align: center;">承认并共情你充满恐惧的那个部分，它才能得到疗愈。现在，请按照以下你亲自制定的步骤去行动吧：</div>
+    <div id="report-content"></div>
+    <button class="btn" style="margin-top:20px;" onclick="location.reload()">重新开启练习</button>
+  </div>
+
+</div>
+
+<script>
+  // WABCO 五步法的内容配置
+  const steps = [
+    {
+      letter: "W (Write) - 写下来",
+      desc: "把问题写下来，弄清楚你恐惧的具体是什么？把你面对的麻烦和内心的害怕都写在这里。",
+      placeholder: "我现在的困境是... 我真正害怕发生的是..."
+    },
+    {
+      letter: "A (Ask) - 寻求",
+      desc: "根据你的需要寻求帮助。谁能在这件事上给你情感支持或实用建议？",
+      placeholder: "我可以向___寻求帮助，我需要他们帮我..."
+    },
+    {
+      letter: "B (Break) - 分解",
+      desc: "将问题分解成几个部分。不要试图一次解决所有麻烦，第一步、第二步分别可以做什么？",
+      placeholder: "1. 我今天能做的第一件小事是...\n2. 接下来我可以..."
+    },
+    {
+      letter: "C (Curb) - 抑制",
+      desc: "抑制自我批评的欲望。世上没有完美的人，不要在此时评判自己。写下一句安抚“内在小孩”的话。",
+      placeholder: "我不会因为感到害怕而羞愧，因为..."
+    },
+    {
+      letter: "O (Optimistically) - 乐观",
+      desc: "乐观地想象解决问题后你会有什么感觉。这会让你立刻平静下来。",
+      placeholder: "当这一切过去后，我会感到..."
+    }
+  ];
+
+  let currentStep = 0;
+  const userAnswers = [];
+
+  const stepIdEl = document.getElementById('step-id');
+  const questionEl = document.getElementById('question-text');
+  const descEl = document.getElementById('desc-text');
+  const inputEl = document.getElementById('user-input');
+  const stepContainer = document.getElementById('step-container');
+  const reportContainer = document.getElementById('report-container');
+  const reportContent = document.getElementById('report-content');
+
+  function initStep() {
+    stepIdEl.innerText = `步骤 ${currentStep + 1} / 5`;
+    questionEl.innerText = steps[currentStep].letter;
+    descEl.innerText = steps[currentStep].desc;
+    inputEl.value = '';
+    inputEl.placeholder = steps[currentStep].placeholder;
+    if(currentStep === 4) {
+      document.getElementById('next-btn').innerText = '生成我的应对方案';
+    }
+  }
+
+  function nextStep() {
+    const answer = inputEl.value.trim();
+    if(!answer) {
+      alert("请写下一点你的想法，这会帮助你整理思绪哦。");
+      return;
+    }
+    
+    userAnswers.push({
+      title: steps[currentStep].letter,
+      content: answer
+    });
+
+    currentStep++;
+    
+    if(currentStep < 5) {
+      initStep();
+    } else {
+      showReport();
+    }
+  }
+
+  function showReport() {
+    stepContainer.style.display = 'none';
+    reportContainer.style.display = 'block';
+    
+    let html = '';
+    userAnswers.forEach(ans => {
+      html += `
+        <div class="report-item">
+          <h3>${ans.title}</h3>
+          <p>${ans.content}</p>
+        </div>
+      `;
+    });
+    reportContent.innerHTML = html;
+  }
+
+  // 初始化第一步
+  initStep();
+</script>
 </body>
 </html>
