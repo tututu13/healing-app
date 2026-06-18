@@ -3,305 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>寻回真实自我 - 12项疗愈全书测试</title>
+<title>超越童年创伤 - 12项深度疗愈日志</title>
 <style>
-  body { 
-    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; 
-    background-color: #f4f1ea; 
-    color: #4a4a4a; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-  }
-  .card { 
-    background: #ffffff; 
-    padding: 40px; 
-    border-radius: 16px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
-    max-width: 650px; 
-    width: 100%; 
-    transition: all 0.3s ease;
-  }
-  h1 { 
-    color: #c97a63; 
-    font-size: 24px; 
-    text-align: center;
-    margin-bottom: 24px; 
-  }
-  p#question-text { 
-    font-size: 18px; 
-    line-height: 1.6; 
-    margin-bottom: 30px; 
-    font-weight: bold;
-  }
-  .btn { 
-    display: block; 
-    width: 100%; 
-    padding: 16px 20px; 
-    margin-bottom: 16px; 
-    border: 2px solid #eae5d9; 
-    border-radius: 10px; 
-    background: #faf9f6; 
-    color: #555; 
-    font-size: 16px; 
-    cursor: pointer; 
-    transition: all 0.2s; 
-    text-align: left; 
-    line-height: 1.5;
-  }
-  .btn:hover { 
-    background: #fdf5f2; 
-    border-color: #c97a63; 
-    color: #c97a63; 
-  }
-  .result-box { 
-    background: #fdf8f5; 
-    border-left: 5px solid #c97a63; 
-    padding: 24px; 
-    border-radius: 4px;
-    margin-bottom: 30px; 
-    display: none; 
-    animation: fadeIn 0.5s ease-in;
-  }
-  .result-title { 
-    font-weight: bold; 
-    font-size: 20px;
-    color: #c97a63; 
-    margin-bottom: 16px; 
-  }
-  .feedback-text {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 16px;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  body { font-family: 'PingFang SC', serif; background-color: #f7f5f0; color: #3a3a3a; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+  .journal-card { background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); max-width: 700px; width: 100%; border-top: 6px solid #b89b82; }
+  h1 { color: #8c735a; text-align: center; margin-bottom: 10px; }
+  .subtitle { text-align: center; color: #777; margin-bottom: 30px; font-size: 15px; }
+  
+  /* 首页菜单网格 */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 20px; }
+  .chapter-btn { background: #fdfaf6; border: 2px solid #eae5d9; padding: 20px; border-radius: 8px; text-align: left; font-size: 16px; color: #555; cursor: pointer; transition: 0.3s; font-weight: bold;}
+  .chapter-btn:hover:not(:disabled) { background: #f4eee6; border-color: #b89b82; color: #8c735a; transform: translateY(-2px); }
+  .chapter-btn:disabled { background: #eee; color: #aaa; cursor: not-allowed; border-color: #ddd;}
+  
+  /* 问答区样式 */
+  .q-title { font-size: 20px; font-weight: bold; margin-bottom: 15px; color: #4a4a4a; }
+  .q-desc { font-size: 16px; color: #666; line-height: 1.6; margin-bottom: 25px; }
+  .dynamic-text { color: #b89b82; font-weight: bold; background: #fdfaf6; padding: 2px 6px; border-radius: 4px; }
+  textarea, input[type="text"] { width: 100%; padding: 15px; border: 1px solid #dcdcdc; border-radius: 6px; font-size: 16px; margin-bottom: 20px; box-sizing: border-box; background-color: #faf9f7; line-height: 1.5;}
+  textarea { height: 120px; resize: none; }
+  textarea:focus, input[type="text"]:focus { outline: none; border-color: #b89b82; background-color: #fff; }
+  .btn { width: 100%; padding: 16px; border: none; border-radius: 6px; background: #8c735a; color: #fff; font-size: 17px; cursor: pointer; margin-bottom: 15px; }
+  .btn:hover { background: #735c46; }
+  .btn-outline { background: transparent; color: #8c735a; border: 1px solid #8c735a; }
+  .back-btn { background: none; border: none; color: #b89b82; cursor: pointer; font-size: 15px; margin-bottom: 20px; text-decoration: underline; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<!-- 引入你即将创建的数据文件 -->
+<script src="data.js"></script>
 </head>
 <body>
 
-<div class="card" id="app">
-  <h1 id="title">✨ 寻回真实自我：12项疗愈测试</h1>
-  <p id="question-text">加载中...</p>
-  
-  <div id="result" class="result-box">
-    <div class="result-title" id="result-title"></div>
-    <div class="feedback-text" id="result-content"></div>
+<div class="journal-card">
+  <!-- 首页：章节选择菜单 -->
+  <div id="home-view">
+    <h1>12项深度疗愈日志</h1>
+    <p class="subtitle">请选择你今天想要探索并夺回的生命权利</p>
+    <div class="grid" id="chapter-grid"></div>
   </div>
 
-  <div id="options-container"></div>
+  <!-- 问答页：深度交互引擎 -->
+  <div id="journal-view" style="display:none;">
+    <button class="back-btn" onclick="goHome()">← 返回目录</button>
+    <h2 id="chapter-title" style="color:#8c735a; border-bottom:1px solid #eee; padding-bottom:10px;"></h2>
+    <div id="step-container">
+      <div class="q-title" id="q-title"></div>
+      <div class="q-desc" id="q-desc"></div>
+      <div id="input-container"></div>
+      <button class="btn" id="next-btn" onclick="nextStep()">下一步</button>
+    </div>
+    <!-- 专属疗愈报告 -->
+    <div id="report-container" style="display:none; text-align:center;">
+      <h2 style="color:#8c735a;">✨ 你的更高自我正在为你鼓掌！</h2>
+      <p style="color:#666; margin-bottom:30px;">它站起来鼓掌，冲你吹口哨！因为你找回了讲述自己生命故事的权利。</p>
+      <button class="btn" onclick="goHome()">完成练习，返回主页</button>
+    </div>
+  </div>
 </div>
 
 <script>
-  // ================= 完整覆盖全书 12 项练习的测试逻辑库 =================
-  const quizData = {
-    start: {
-      q: "🟢 起点：当你回想过去与家人的互动，或者面对现在的内心状态时，你最常经历哪种困扰？",
-      opts: [
-        { text: "A. 经常感到迷茫、自我怀疑，觉得压抑，不能放肆地做真实的自己。", next: 'branchA' },
-        { text: "B. 很难对别人说“不”，发生冲突时，第一反应总是觉得自己做错了。", next: 'branchB' },
-        { text: "C. 遇到压力或犯错时，极其容易陷入绝望、内疚，觉得自己总在硬抗。", next: 'branchC' },
-        { text: "D. 在人群中常感到格格不入，或者在消耗自己的人际关系里挣扎。", next: 'branchD' }
-      ]
-    },
+  let memory = {};
+  let currentChapter = null;
+  let currentStepIndex = 0;
 
-    // ----------------- 分支 A：自我与活力 (练习 1, 2, 12) -----------------
-    branchA: {
-      q: "🔵 深入探索 (A)：当你试图表达自我、尝试新事物或追求目标时，你内心的最大阻力是什么？",
-      opts: [
-        { text: "脑海里总有个嘲讽的声音说“多浪费时间啊”、“你肯定做不好”，让我迷失自我。", next: 'result1' },
-        { text: "一旦表达意见，如果别人反应不好，我就会立刻陷入自我怀疑，失去信心。", next: 'result2' },
-        { text: "为了取悦他人，我总是不断审视和评判自己，让我觉得生活毫无乐趣和活力。", next: 'result12' }
-      ]
-    },
-    result1: {
-      isResult: true, title: "🎯 推荐疗愈：练习 1【了解自己，不要迷失自我】",
-      content: "解读：脑海中的嘲讽声其实是你内化了情感不成熟父母的评判。你的心理成熟不需要他们的许可。没有人有权告诉你自我认知不重要。",
-      opts: [
-        { text: "🌑 【停滞之路】：探索自我就是浪费时间，我继续压抑自己就行。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：我有权听从直觉，了解自己、做真实的自己并不自私！", next: 'start', isGrowth: true }
-      ]
-    },
-    result2: {
-      isResult: true, title: "🎯 推荐疗愈：练习 2【唤醒你的自信】",
-      content: "解读：你的自信可能在童年受到了打击。但自信不由他人的反应决定。你可以大胆宣告：要不要相信自己，全取决于我自己。",
-      opts: [
-        { text: "🌑 【停滞之路】：我还是不要太自信了，免得冒犯别人招来厌恶。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：我相信自己有能力习得新技能，不再畏惧他人的反应！", next: 'start', isGrowth: true }
-      ]
-    },
-    result12: {
-      isResult: true, title: "🎯 推荐疗愈：练习 12【尽管有人评判，也要感受自己的活力】",
-      content: "解读：永远不值得为取悦他人而疏远你的真实自我。一旦你把别人的评判放在心上，你的热情、活力和创造力就会枯萎。",
-      opts: [
-        { text: "🌑 【停滞之路】：别人评判我肯定有理由，我得压抑自己以免显得太强势。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：即使有人肆意评判，我也喜欢真实的自我，保护我的活力！", next: 'start', isGrowth: true }
-      ]
-    },
-
-    // ----------------- 分支 B：界限与回应 (练习 4, 5, 6) -----------------
-    branchB: {
-      q: "🔵 深入探索 (B)：在与人发生冲突，或面对别人提出的不合理要求时，你的第一反应是？",
-      opts: [
-        { text: "我会妥协。因为如果我划清界限或说不，我会感到强烈的内疚和自私。", next: 'result4' },
-        { text: "我会僵住，大脑一片空白，被对方的反应吓到，事后才后悔没反驳。", next: 'result5' },
-        { text: "我会下意识地承担所有责任，甚至为对方的发怒或不开心找借口。", next: 'result6' }
-      ]
-    },
-    result4: {
-      isResult: true, title: "🎯 推荐疗愈：练习 4【保护自己，划清界限】",
-      content: "解读：情感不成熟者认为他们的需求更重要，让你觉得划清界限就是不爱他们。但你有权利保护自己，这绝不是自私。",
-      opts: [
-        { text: "🌑 【停滞之路】：我还是继续忍耐吧，免得惹出麻烦。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：我有权根据自身需要保护自己，限制他人对我的行为！", next: 'start', isGrowth: true }
-      ]
-    },
-    result5: {
-      isResult: true, title: "🎯 推荐疗愈：练习 5【立即回应】",
-      content: "解读：沉默不是软弱，而是被恐吓的标志。不要让那些急躁的、令人头脑混乱的反应把你搞晕，从而接管你的行动。",
-      opts: [
-        { text: "🌑 【停滞之路】：他们总能吓到我，我不是他们的对手，躲远点就好。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：我会大声说出想法，不再给他们恐吓和迷惑我的权利！", next: 'start', isGrowth: true }
-      ]
-    },
-    result6: {
-      isResult: true, title: "🎯 推荐疗愈：练习 6【停止自我责备】",
-      content: "解读：你习惯通过承担指责来实现“公正”。但情感不成熟者从不反思，总是防御性地怪罪于你。不要再替别人的情绪背锅了。",
-      opts: [
-        { text: "🌑 【停滞之路】：按他们说的办并道歉，日子会容易些。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：如果真的不是我的错，我拒绝承担责任，也绝不内疚！", next: 'start', isGrowth: true }
-      ]
-    },
-
-    // ----------------- 分支 C：韧性与自我照顾 (练习 7, 8, 9) -----------------
-    branchC: {
-      q: "🔵 深入探索 (C)：当面临突如其来的压力、困难，或者当你犯错时，你会如何应对？",
-      opts: [
-        { text: "我觉得花时间休息和照顾自己是自私的，我必须优先考虑他人的情绪。", next: 'result7' },
-        { text: "遇到突发问题我会极度恐慌、孤立无援，觉得自己像个无助的小孩。", next: 'result8' },
-        { text: "我会狠狠地批评自己、惩罚自己，觉得犯错是不可原谅的灾难。", next: 'result9' }
-      ]
-    },
-    result7: {
-      isResult: true, title: "🎯 推荐疗愈：练习 7【倾听自己的声音，给自己力量】",
-      content: "解读：情感不成熟者让你觉得优先考虑自己是不道德的。但自我照顾不会让任何人付出代价，除了那些想指挥你生活的人。",
-      opts: [
-        { text: "🌑 【停滞之路】：我压抑休息的需求，免得别人觉得我懒惰自私。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：我有权倾听自己的感受，好好照顾自己，为自己赋能！", next: 'start', isGrowth: true }
-      ]
-    },
-    result8: {
-      isResult: true, title: "🎯 推荐疗愈：练习 8【提升心理韧性】",
-      content: "解读：你习惯了封闭自己独自承受，因为过去寻求帮助可能会遭遇指责。你需要共情内心恐惧的“内在小孩”，并让成人自我来解决问题。",
-      opts: [
-        { text: "🌑 【停滞之路】：遇到麻烦时，我拼命掩饰恐惧，独自硬抗。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：我接纳自己的恐惧，并允许自己向合适的人寻求帮助！", next: 'start', isGrowth: true }
-      ]
-    },
-    result9: {
-      isResult: true, title: "🎯 推荐疗愈：练习 9【对你的错误宽容以待】",
-      content: "解读：严厉的自我批评会使解决问题变得更难。你缺乏支持的内在小孩陷入了恐惧，请以幽默和宽容的态度接纳你犯的错吧。",
-      opts: [
-        { text: "🌑 【停滞之路】：如果再搞砸，我会非常痛苦，并狠狠惩罚自己。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：世上没有完美的人。如果我犯了错，我会改正，但我不是机器。", next: 'start', isGrowth: true }
-      ]
-    },
-
-    // ----------------- 分支 D：关系与归属感 (练习 3, 10, 11) -----------------
-    branchD: {
-      q: "🔵 深入探索 (D)：在人际关系（如伴侣、朋友、家庭）中，你最容易陷入哪种困境？",
-      opts: [
-        { text: "为了融入群体，我常常戴上假面具隐藏真实的自己，但内心感到孤独。", next: 'result3' },
-        { text: "即使别人对我不好，只要他们稍微道个歉，我就会一次次原谅并容忍。", next: 'result10' },
-        { text: "我总是花精力试图改变某人，幻想着只要我足够好，他们就会懂得爱我。", next: 'result11' }
-      ]
-    },
-    result3: {
-      isResult: true, title: "🎯 推荐疗愈：练习 3【建立归属感】",
-      content: "解读：归属感的基础是了解并接受真实的自己。如果周围的人对你真实的内在不感兴趣，你是永远不会觉得自己属于这里的。",
-      opts: [
-        { text: "🌑 【停滞之路】：我先观望别人怎么看我，再尝试伪装自己去融入。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：我接受真实的自己，我有权去寻找真正接纳我的群体！", next: 'start', isGrowth: true }
-      ]
-    },
-    result10: {
-      isResult: true, title: "🎯 推荐疗愈：练习 10【寻找那些善待你的人】",
-      content: "解读：童年缺少情感支持可能让你习惯于忍受专横，只求一点点关注。你无意识地被那些以自我为中心的人吸引，因为他们让你觉得熟悉。",
-      opts: [
-        { text: "🌑 【停滞之路】：拥有一段关系总比孤独好，我能忍受糟糕的对待。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：我相信自己的直觉，我只允许善待我的人进入我的生活！", next: 'start', isGrowth: true }
-      ]
-    },
-    result11: {
-      isResult: true, title: "🎯 推荐疗愈：练习 11【找到最佳平衡点，审视治愈幻想】",
-      content: "解读：你抱有“治愈幻想”，希望付出能换来对方的改变。但作为成年人，你需要根据自己的能量水平，由你来决定和消耗你的人相处的距离。",
-      opts: [
-        { text: "🌑 【停滞之路】：我继续等，希望有一天我爱的人能改变并理解我。", next: 'start', isGrowth: false },
-        { text: "🌟 【成长之路】：我不会无限期等待某人改变，我要去追求能给我正能量的人！", next: 'start', isGrowth: true }
-      ]
+  // 1. 渲染首页网格
+  window.onload = () => {
+    const grid = document.getElementById('chapter-grid');
+    for(let i=1; i<=12; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'chapter-btn';
+      if(window.bookData && window.bookData[i]) {
+        btn.innerHTML = window.bookData[i].title;
+        btn.onclick = () => startChapter(i);
+      } else {
+        btn.innerHTML = `第 ${i} 章 <br><span style="font-size:13px; font-weight:normal;">(系统升级中，敬请期待)</span>`;
+        btn.disabled = true;
+      }
+      grid.appendChild(btn);
     }
   };
 
-  function renderStep(stepKey) {
-    const node = quizData[stepKey];
-    const qText = document.getElementById('question-text');
-    const optsContainer = document.getElementById('options-container');
-    const resBox = document.getElementById('result');
+  function goHome() {
+    document.getElementById('journal-view').style.display = 'none';
+    document.getElementById('report-container').style.display = 'none';
+    document.getElementById('step-container').style.display = 'block';
+    document.getElementById('home-view').style.display = 'block';
+  }
 
-    optsContainer.innerHTML = '';
+  function startChapter(id) {
+    currentChapter = window.bookData[id];
+    memory = {}; // 清空上一次的记忆
+    currentStepIndex = 0;
+    document.getElementById('home-view').style.display = 'none';
+    document.getElementById('journal-view').style.display = 'block';
+    document.getElementById('chapter-title').innerText = currentChapter.title;
+    renderStep();
+  }
 
-    if (node.isResult) {
-      qText.style.display = 'none';
-      resBox.style.display = 'block';
-      document.getElementById('result-title').innerText = node.title;
-      document.getElementById('result-content').innerText = node.content;
-      
-      node.opts.forEach(opt => {
+  function renderStep() {
+    const step = currentChapter.steps[currentStepIndex];
+    document.getElementById('q-title').innerText = step.title;
+    document.getElementById('q-desc').innerHTML = typeof step.desc === 'function' ? step.desc(memory) : step.desc;
+    
+    const inputContainer = document.getElementById('input-container');
+    const nextBtn = document.getElementById('next-btn');
+    inputContainer.innerHTML = '';
+    
+    if (step.isChoice) {
+      nextBtn.style.display = 'none';
+      step.choices.forEach(choice => {
         const btn = document.createElement('button');
-        btn.className = 'btn';
-        btn.innerText = opt.text;
-        btn.onclick = () => {
-          // 如果用户点击了“成长之路”，就触发撒花动效
-          if(opt.isGrowth) {
-             triggerConfetti();
-          }
-          setTimeout(() => { renderStep(opt.next); }, 1500); 
-        };
-        optsContainer.appendChild(btn);
+        btn.className = choice.isGrowth ? 'btn' : 'btn btn-outline';
+        btn.innerText = choice.text;
+        btn.onclick = () => handleChoice(choice.isGrowth);
+        inputContainer.appendChild(btn);
       });
     } else {
-      qText.style.display = 'block';
-      resBox.style.display = 'none';
-      qText.innerText = node.q;
-      node.opts.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.className = 'btn';
-        btn.innerText = opt.text;
-        btn.onclick = () => renderStep(opt.next);
-        optsContainer.appendChild(btn);
+      nextBtn.style.display = 'block';
+      step.inputs.forEach(input => {
+        let field = document.createElement(input.type === 'textarea' ? 'textarea' : 'input');
+        if(input.type !== 'textarea') field.type = 'text';
+        field.id = `input-${input.key}`;
+        field.placeholder = input.placeholder;
+        if(memory[input.key]) field.value = memory[input.key];
+        inputContainer.appendChild(field);
       });
     }
   }
 
-  // 定义满屏撒花特效
-  function triggerConfetti() {
-    confetti({
-      particleCount: 150, 
-      spread: 80,         
-      origin: { y: 0.6 }, 
-      colors: ['#c97a63', '#4a90e2', '#ffd700', '#ff6b6b'] 
-    });
+  function nextStep() {
+    const step = currentChapter.steps[currentStepIndex];
+    for (let input of step.inputs) {
+      const val = document.getElementById(`input-${input.key}`).value.trim();
+      if (!val) return alert("请写下一点你的真实想法，这对深入疗愈非常重要。");
+      memory[input.key] = val;
+    }
+    currentStepIndex++;
+    renderStep();
   }
 
-  // 启动应用
-  renderStep('start');
+  function handleChoice(isGrowth) {
+    if (isGrowth) {
+      confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 }, colors: ['#8c735a', '#b89b82', '#ffd700'] });
+      setTimeout(() => { 
+        document.getElementById('step-container').style.display = 'none';
+        document.getElementById('report-container').style.display = 'block';
+      }, 1000);
+    } else {
+      alert("没关系，停滞也是一种暂时的自我保护。准备好时，随时回来。");
+      goHome();
+    }
+  }
 </script>
 </body>
 </html>
-
